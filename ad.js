@@ -6,24 +6,25 @@ function squaredArray(array) {
   return squaredArray;
 }
 
-console.log(squaredArray([1, 2, 3, 5, 6, 8, 9]))
-console.log(squaredArray([-10, -5, 0, 5, 10]))
+// console.log(squaredArray([1, 2, 3, 5, 6, 8, 9]))
+// console.log(squaredArray([-10, -5, 0, 5, 10]))
 
 // Non constructible change
 function getImpossibleChange(array) {
   array.sort((a, b) => a - b);
-  const arrayCopy = [...array];
-  const maxNumber = array[array.length -1];
-  let changeAmount = 1;
+  let currentChange = 0;
 
-  for (let i = 0; i < maxNumber; i++) {
-    if (number > changeAmount) {
-      return changeAmount;
+  for (let i = 0; i < array.length; i++) {
+    const coin = array[i];
+    if (coin > currentChange + 1) {
+      return currentChange + 1;
     }
-    changeAmount++;
+    currentChange += coin;
   }
-
-  return changeAmount;
+  
+  return currentChange + 1;
 }
 
-console.log(getImpossibleChange([5, 7, 1, 1, 2, 3, 22]));
+// console.log(getImpossibleChange([5, 7, 1, 1, 2, 3, 22]));
+// console.log(getImpossibleChange([1, 1, 1, 1, 1]));
+// console.log(getImpossibleChange([1, 5, 1, 1, 1, 10, 15, 20, 100]));
